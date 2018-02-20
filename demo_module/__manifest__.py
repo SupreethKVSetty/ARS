@@ -19,7 +19,7 @@
         'views/views.xml',
         'views/templates.xml',
     ],
-    'demo': [
-        'demo/demo.xml',
-    ],
+    # 'demo': [
+    #     'demo/demo.xml',
+    # ],
 }
