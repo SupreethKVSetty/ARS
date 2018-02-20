@@ -1,0 +1,72 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="demo_module_list">
+      <field name="name">demo.module.list</field>
+      <field name="model">demo.module</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="partner_id"/>
+          <field name="mobile"/>
+          <field name="email"/>
+          <!--<field name="sum" total="sum"/>-->
+        </tree>
+      </field>
+    </record>
+
+    <!-- explicit form view definition -->
+    <record model="ir.ui.view" id="demo_module_form">
+      <field name="name">demo.module.form</field>
+      <field name="model">demo.module</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <group>
+                <!--<field name="name"/>-->
+                <field name="partner_id" string="Customer Name"/>
+                <field name="mobile"/>
+                <field name="email"/>
+              </group>
+              <group>
+                <field name="current_date"/>
+                <field name="dob"/>
+                <field name="current_age"/>
+                <!--<field name="value1"/>-->
+                <!--<field name="value2"/>-->
+                <!--<field name="sum"/>-->
+              </group>
+            </group>
+
+            <notebook>
+              <page string="Customer Info">
+                  <div>
+                      <label string="Customer Info"/>
+                      <field name="description"/>
+                  </div>
+              </page>
+            </notebook>
+
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="demo_module_action_window">
+      <field name="name">Demo</field>
+      <field name="res_model">demo.module</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem name="Demo" id="menu_demo"/>
+
+    <!-- menu categories -->
+    <menuitem name="Menu 1" id="menu_demo_1" parent="menu_demo"/>
+    <!-- actions -->
+
+    <menuitem name="List" id="menu_demo_2" parent="menu_demo_1"
+              action="demo_module_action_window"/>
+  </data>
+</odoo>
